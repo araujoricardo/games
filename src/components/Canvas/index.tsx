@@ -1,13 +1,13 @@
 import React from "react";
 import {spaceship} from "../../entities/spaceship";
 import {movesControl} from "../../services/movesControl";
+import {canvasTemplate} from "../../services/gameConfig";
 
 
 export default class Canvas extends React.Component{
     canvasRef:React.RefObject<HTMLCanvasElement>;
     canvas: null | HTMLCanvasElement;
     canvasContext: null | CanvasRenderingContext2D;
-
 
     constructor(props:any){
         super(props);
@@ -37,9 +37,9 @@ export default class Canvas extends React.Component{
 
    drawCanvas = ():void =>{
         if(this.canvasContext && this.canvas){
-            this.canvasContext.clearRect(0,0, this.canvas.width, this.canvas.height);
-            this.canvasContext.fillStyle="rgba(123, 41, 34, 0.5)";
-            this.canvasContext.fillRect(0, 0, this.canvas.width, this.canvas.height);
+            this.canvasContext.clearRect(0,0, canvasTemplate.width, canvasTemplate.height);
+            this.canvasContext.fillStyle = canvasTemplate.color;
+            this.canvasContext.fillRect(0, 0, canvasTemplate.width, canvasTemplate.height);
         };
    };
 
@@ -50,11 +50,10 @@ export default class Canvas extends React.Component{
         };
     };
 
-    
     render(){
         return(
             <div>
-               <canvas ref={this.canvasRef} width="400" height="400"/>
+               <canvas ref={this.canvasRef} width={canvasTemplate.width} height={canvasTemplate.height}/>
             </div>
         );
     };
