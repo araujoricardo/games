@@ -8,5 +8,8 @@ export function movesControl(event:any):void{
         case "ArrowLeft":{
             return spaceship.moveLeft();
         };
+        default:{
+            return;
+        };
     };
 };

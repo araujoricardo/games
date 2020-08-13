@@ -1,3 +1,5 @@
+import {canvasTemplate} from "../services/gameConfig";
+
 type Spaceship ={
     size: number,
     color: string
@@ -18,8 +20,14 @@ export const spaceship: Spaceship  = {
 
     moveRight(){
         this.xPosition += this.xSpeed;
+        if((this.xPosition+this.size)>canvasTemplate.width){
+            this.xPosition = canvasTemplate.width - this.size;
+        };
     },
     moveLeft(){
         this.xPosition -= this.xSpeed;
+        if(this.xPosition<0){
+            this.xPosition = 0;
+        };
     },
 };
