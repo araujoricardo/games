@@ -29,6 +29,7 @@ export default class Canvas extends React.Component{
         setInterval(()=>{            
             this.drawCanvas();
             this.drawNave();
+            this.drawModel();
         }, 1000/framesPerSecond);
 
         document.addEventListener("keydown", movesControl );
@@ -36,8 +37,8 @@ export default class Canvas extends React.Component{
 
 
    drawCanvas = ():void =>{
-        if(this.canvasContext && this.canvas){
-            this.canvasContext.clearRect(0,0, canvasTemplate.width, canvasTemplate.height);
+        if(this.canvasContext){
+            this.canvasContext.clearRect(0, 0, canvasTemplate.width, canvasTemplate.height);
             this.canvasContext.fillStyle = canvasTemplate.color;
             this.canvasContext.fillRect(0, 0, canvasTemplate.width, canvasTemplate.height);
         };
@@ -50,6 +51,36 @@ export default class Canvas extends React.Component{
         };
     };
 
+    drawModel = ()=>{
+        // const centerX: number = 100;
+        // const centerY: number = 100;
+        // const mockObject = [
+        //     {x: centerX - 10, y: centerY},
+        //     {x: centerX + 10,  y: centerY+10},
+        //     {x: centerX - 20, y: centerY+20}
+        // ]
+
+        // const monster ={
+        //     centerX: 100, 
+        //     centerY: 100, 
+        //     mockObject: [
+        //         {x: centerX - 10, y: centerY},
+        //         {x: centerX + 10,  y: centerY+10},
+        //         {x: centerX - 20, y: centerY+20}
+        //     ]
+        // }
+
+
+        // if(this.canvasContext){
+        //     this.canvasContext.fillStyle = "yellow";
+        //     this.canvasContext.beginPath();
+        //     monster.mockObject.forEach((element)=>{
+        //         return this.canvasContext?.fillRect(element.x, element.y, 10, 10);
+        //     });
+        //     this.canvasContext.fill();
+        // };
+    };
+
     render(){
         return(
             <div>
@@ -58,73 +89,3 @@ export default class Canvas extends React.Component{
         );
     };
 };
-
-
-
-
-
-
-
-
-// export default class Canvas extends React.Component{
-//     canvasRef:React.RefObject<HTMLCanvasElement>;
-//     canvas: null | HTMLCanvasElement;
-//     canvasContext: null | CanvasRenderingContext2D;
-//     fruit:{
-//         xPosition:number
-//     };
-
-//     constructor(props:any){
-//         super(props);
-//         this.canvasRef = React.createRef<HTMLCanvasElement>();
-//         this.canvas = null;
-//         this.canvasContext = null;
-
-//         this.fruit={
-//             xPosition: 10
-//         }
-//     };
-    
-// componentDidMount(){
-//     this.canvas = this.canvasRef.current as HTMLCanvasElement;
-//     this.canvasContext = this.canvas.getContext("2d");
-    
-//     const framesPerSecond:number = 30;
-
-//     setInterval(()=>{            
-//         this.drawCanvas();
-//         this.drawRec();
-//         this.moveXFruit();
-//         this.drawNave();
-//         spaceship.changeXposition();
-//     }, 1000/framesPerSecond);
-// };
-
-// drawCanvas = ():void =>{
-//     if(this.canvasContext && this.canvas){
-//         this.canvasContext.clearRect(0,0, this.canvas.width, this.canvas.height);
-//         this.canvasContext.fillStyle="rgba(123, 41, 34, 0.5)";
-//         this.canvasContext.fillRect(0, 0, this.canvas.width, this.canvas.height);
-//     };
-// };
-
-// drawRec = ()=>{
-//    if(this.canvasContext){
-//        this.canvasContext.fillStyle="green";
-//        this.canvasContext.fillRect(this.fruit.xPosition,20,20,20);
-//    };
-// };
-
-// moveXFruit=()=>{
-//     this.fruit.xPosition+=2;
-//     if(this.fruit.xPosition===(this.canvas as HTMLCanvasElement).width){
-//         this.fruit.xPosition=0
-//     };
-// };
-
-// drawNave = ()=>{
-//     if(this.canvasContext){
-//         this.canvasContext.fillStyle=spaceship.color;
-//         this.canvasContext.fillRect(spaceship.xPosition, spaceship.yPosition, spaceship.size, spaceship.size)
-//     };
-// };
