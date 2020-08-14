@@ -13,18 +13,3 @@ Repository with some simple games that I made to study HTML Canvas.
 ## space-arcade 👾
 
 ongoing
-
-
-## REFERENCES
-
-* LISTA
-
-```
-CAIXA
-```
-
-[LINK](URL)
-
-SE FOR IMAGEM COLOCAR !
-
-
